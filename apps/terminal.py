@@ -88,7 +88,7 @@ keymap = {
     "shell Whereami": "pwd ",
     "shell home": "~/",
     "lefty": Key("ctrl-a"),
-    "ricky": Key("ctrl-e"),
+    #"ricky": Key("ctrl-e"),
     "(pain new | split vertical)": Key("cmd-d"),
     "new {global_terminal.servers}": new_server,
     # talon

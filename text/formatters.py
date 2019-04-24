@@ -26,7 +26,7 @@ def title_case_capitalize_word(index, word, _):
 
 formatters = normalise_keys(
     {
-        "tree": (True, lambda i, word, _: word[0:3] if i == 0 else ""),
+        #"tree": (True, lambda i, word, _: word[0:3] if i == 0 else ""),
         "quad": (True, lambda i, word, _: word[0:4] if i == 0 else ""),
         "(cram | camel)": (
             True,
@@ -62,7 +62,7 @@ formatters = normalise_keys(
 surrounders = normalise_keys(
     {
         "(dubstring | coif)": (False, surround('"')),
-        "(string | posh)": (False, surround("'")),
+        #"(string | posh)": (False, surround("'")),
         "(tics | glitch)": (False, surround("`")),
         "padded": (False, surround(" ")),
         "dunder": (False, surround("__")),
@@ -114,7 +114,7 @@ ctx = Context("formatters")
 
 ctx.keymap(
     {
-        "(phrase | say) <dgndictation> [over]": text,
+        "phrase <dgndictation> [over]": text,
         "sentence <dgndictation> [over]": sentence_text,
         "(comma | ,) <dgndictation> [over]": [", ", spoken_text],
         "period <dgndictation> [over]": [". ", sentence_text],

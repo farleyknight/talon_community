@@ -17,7 +17,8 @@ simple_keys = normalise_keys(
         "(delete | forward delete | scrap | spunk)": "delete",
         "(space | skoosh)": "space",
         "(tab | tarp)": "tab",
-        "( enter | shock )": "enter",
+        "( enter | shock | return | new line )": "enter",
+        "up": "up",
         "( escape | randall )": "escape",
         "home": "home",
         "pagedown": "pagedown",
@@ -67,7 +68,7 @@ arrows = {"left": "left", "right": "right", "up": "up", "down": "down"}
 
 # map alnum and keys separately so engine gives priority to letter/number repeats
 keymap = keys.copy()
-keymap.update(alphabet)
+#keymap.update(alphabet)
 keymap.update(digits)
 keymap.update(arrows)
 

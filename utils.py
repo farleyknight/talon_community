@@ -46,8 +46,8 @@ def replace_words(words, mapping, count):
         if key in mapping:
             new_words.append(mapping[key])
             i = i + count
-        else:
             new_words.append(phrase[0])
+        else:
             i = i + 1
 
     new_words.extend(words[i:])
@@ -96,6 +96,8 @@ def text(m):
 def snake_text(m):
     insert(join_words(parse_words(m), sep="_").lower())
 
+# def camel_text(m):
+#     insert(join_words(
 
 def spoken_text(m):
     insert(join_words(parse_words(m, True)))
@@ -299,10 +301,16 @@ def is_vim(app, win):
             return True
     return False
 
+def is_emacs(app, win):
+    if "Emacs" in win.title:
+        return True
+    return False
 
 def is_not_vim(app, win):
     return not is_vim(app, win)
 
+def is_not_vim_or_emacs(app, win):
+    return not (is_vim(app, win) or is_emacs(app, win))
 
 def is_filetype(extensions=()):
     def matcher(app, win):

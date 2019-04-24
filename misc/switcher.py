@@ -28,6 +28,8 @@ def launch_app(m):
     if path:
         ui.launch(path=path)
 
+def switch_to_app(name):
+    return lambda x: switch_app(x, name)
 
 ctx = Context("switcher")
 ctx.keymap(
@@ -35,7 +37,12 @@ ctx.keymap(
         "focus {switcher.running}": switch_app,
         "launch {switcher.launch}": launch_app,
         # custom switchers here
-        "madam": lambda x: switch_app(x, "Atom"),
+        # "madam": lambda x: switch_app(x, "Atom"),
+        "switch to emacs": switch_to_app("Emacs"),
+        "switch to chrome": switch_to_app("Google Chrome"),
+        "switch to terminal": switch_to_app("iTerm2"),
+        "switch to firefox": switch_to_app("Firefox"),
+        "switch to reader": switch_to_app("Acrobat Reader"),
         "fox chrome": lambda x: switch_app(x, "Google Chrome"),
         "fox outlook": lambda x: switch_app(x, "Outlook"),
         "fox slack": lambda x: switch_app(x, "Slack"),

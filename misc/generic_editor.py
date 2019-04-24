@@ -8,11 +8,13 @@ from ..utils import (
     parse_words,
     join_words,
     is_not_vim,
+    is_not_vim_or_emacs,
     numeral_list,
     extract_num_from_m,
 )
 
-ctx = Context("generic_editor", func=is_not_vim)
+#ctx = Context("generic_editor", func=is_not_vim)
+ctx = Context("generic_editor", func=is_not_vim_or_emacs)
 ctx.set_list("n", numeral_list)
 
 
@@ -186,7 +188,7 @@ def word_prev(m, valid_characters=alphanumeric):
 ctx.keymap(
     {
         # meta
-        "(save it | sage)": Key("cmd-s"),
+        #"(save it | sage)": Key("cmd-s"),
         "(undo it | dizzle)": Key("cmd-z"),
         "(redo it | rizzle)": Key("cmd-shift-z"),
         # clipboard
@@ -202,14 +204,14 @@ ctx.keymap(
         "(go line before end | smear)": Key("cmd-right left"),
         # insertions
         "([insert] line break | sky turn)": Key("shift-enter"),
-        "([insert] new line below | slap)": Key("cmd-right enter"),
-        "([insert] new line above | shocker)": Key("ctrl-a cmd-left enter up"),
+        # "([insert] new line below | slap)": Key("cmd-right enter"),
+        # "([insert] new line above | shocker)": Key("ctrl-a cmd-left enter up"),
         "([insert] duplicate line | jolt)": Key(
             "ctrl-a cmd-left shift-down cmd-c down cmd-v"
         ),
         # deleting
         "(delete around this | slurp)": Key("backspace delete"),
-        "(delete line left | snip left | snipple)": Key("shift-cmd-left delete"),
+        #"(delete line left | snip left | snipple)": Key("shift-cmd-left delete"),
         "(delete line right | snip right | snipper)": Key("shift-cmd-right delete"),
         "(delete [this] line)": Key("shift-cmd-right delete delete ctrl-a cmd-left"),
         "(delete word left | trough | steffi | carmex)": Key("alt-backspace"),
@@ -233,6 +235,6 @@ ctx.keymap(
         "(select word left | scram)": Key("alt-shift-left"),
         "(select word right | scrish)": Key("alt-shift-right"),
         "(select line left | lecksy)": Key("cmd-shift-left"),
-        "(select line right | ricksy)": Key("cmd-shift-right"),
+#        "(select line right | ricksy)": Key("cmd-shift-right"),
     }
 )
